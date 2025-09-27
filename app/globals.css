@@ -1,0 +1,4 @@
+:root { --bg:#0A0A0A; --fg:#EDEDED; --primary:#00C2FF; }
+html,body,:root{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+a{color:var(--fg)}

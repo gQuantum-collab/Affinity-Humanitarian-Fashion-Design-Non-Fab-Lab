@@ -1,3 +1,16 @@
+# === gTek Sovereign Git Ignore Protocol v2.2.2.2 ===
+# PRIVATE USE ONLY — Estate Sovereign Systems
+# --------------------------------------------------
+# For private estate use only — not for publication or commercial distribution.
+# --------------------------------------------------
+node_modules/
+.env
+.next/
+.vercel/
+.DS_Store
+.env.secrets
+
+# gTek Sovereign Protocol v2.2.2.2
 # Visual Studio 2015 user specific files
 .vs/
 
@@ -73,3 +86,5 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+node_modules
+.vercel
