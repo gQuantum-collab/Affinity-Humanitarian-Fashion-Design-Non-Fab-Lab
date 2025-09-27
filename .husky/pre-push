@@ -1,16 +1,16 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Make sure deps are installed
+# Ensure dependencies are installed (frozen lockfile to match CI)
 pnpm install --frozen-lockfile
 
-# Enforce runner again
+# Enforce sovereign IP marks
 python3 ops/ipmarks/runner.py
 if ! git diff --quiet; then
-	echo "❌ Sovereign marks runner made changes. Push aborted. Commit them first."
-	exit 1
+  echo "❌ Sovereign marks runner made changes. Push aborted. Commit them first."
+  exit 1
 fi
 
-# Build + test before push
+# Build and run tests
 pnpm build
 pytest ops/tests -q
