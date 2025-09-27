@@ -1,0 +1,23 @@
+name: E2E Smoke (Vercel Protection Bypass)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  smoke-bypass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+      - name: Run smoke bypass
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          DEPLOYMENT_URL: ${{ secrets.DEPLOYMENT_URL }}
+        run: node ./scripts/smoke-bypass.js
