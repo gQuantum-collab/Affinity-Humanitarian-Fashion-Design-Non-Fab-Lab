@@ -7,6 +7,6 @@ gTek Industries OmniLicense v2.2.2.2 — © 2025 gTek Industries, Mighty Mindz I
 All rights reserved to estate private-use only.
 
 Owner: Jerome Elston Hill Jr. (CRID 51509329, Sovereign DIV-LA-JHILL-STFL02035)
-Primary Contact (formal filings): 
+Primary Contact (formal filings): jeromeizhome@gmail.com
 Public Email: jeromeizhome@gmail.com
 Public Phone: +1-213-755-7164

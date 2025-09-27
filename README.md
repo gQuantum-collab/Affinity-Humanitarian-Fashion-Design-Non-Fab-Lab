@@ -3,13 +3,13 @@
 |  publication or commercial distribution.         |
 +--------------------------------------------------+
 
-> DISCLAIMER: This repository contains estate marks for Affinity™ anchored to Jerome Elston Hill Jr. (CRID 51509329; ID DIV-LA-JHILL-STFL02035). Contact: gTek@gtekglobal.design. Use per OmniLicense v2.2.2.2 (private-use only).
+> DISCLAIMER: This repository contains estate marks for Affinity™ anchored to Jerome Elston Hill Jr. (CRID 51509329; ID DIV-LA-JHILL-STFL02035). Contact: jeromeizhome@gmail.com. Use per OmniLicense v2.2.2.2 (private-use only).
 
 
 ════════════════════════════════════════
 Jerome Elston Hill Jr., CRID: 51509329
 Codex Sovereign ID: DIV-LA-JHILL-STFL02035
-contact: gTek@gtekglobal.design
+contact: jeromeizhome@gmail.com
 ════════════════════════════════════════
 
 

@@ -1,0 +1,48 @@
+name: Sovereign CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Run sovereign marks runner
+        run: |
+          python3 ops/ipmarks/runner.py
+          if ! git diff --quiet; then
+            echo "❌ Runner produced changes. Commit them before pushing."
+            git diff
+            exit 1
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+      - name: Run tests
+        run: pytest ops/tests -q
+
+      - name: Done
+        run: echo "✅ Sovereign CI checks passed"

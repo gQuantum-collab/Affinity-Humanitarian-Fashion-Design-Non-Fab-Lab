@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Make sure deps are installed
+pnpm install --frozen-lockfile
+
+# Enforce runner again
+python3 ops/ipmarks/runner.py
+if ! git diff --quiet; then
+	echo "❌ Sovereign marks runner made changes. Push aborted. Commit them first."
+	exit 1
+fi
+
+# Build + test before push
+pnpm build
+pytest ops/tests -q

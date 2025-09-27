@@ -1,0 +1,133 @@
+# Affinity - Supabase Usage
+
+Supabase clients and recommended usage in this project.
+
+Client-side code
+- Import from `@/lib/supabase` and use the anon public key (RLS applies).
+
+Server-side admin
+- Import `supabaseAdmin` from `@/lib/supabaseAdmin` only in server code. Do not expose the service role key to the browser.
+
+Protected API routes
+- Routes that use the admin client require a header `x-admin-token` set to the value of `ADMIN_API_TOKEN` in `.env.secrets`.
+
+Example cURL
+```bash
+curl -H "x-admin-token: $ADMIN_API_TOKEN" \
+     https://yourdomain.com/api/notes
+```
+
+Environment variables (example `.env.example` entries)
+
+```
+# Public (client)
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+
+# Server (never commit sensitive values)
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+ADMIN_API_TOKEN=super-secret-admin-token
+```
++--------------------------------------------------+
+|  For private estate use only — not for           |
+|  publication or commercial distribution.         |
++--------------------------------------------------+
+
+> DISCLAIMER: This repository contains estate marks for Affinity™ anchored to Jerome Elston Hill Jr. (CRID 51509329; ID DIV-LA-JHILL-STFL02035). Contact: jeromeizhome@gmail.com. Use per OmniLicense v2.2.2.2 (private-use only).
+
+
+════════════════════════════════════════
+Jerome Elston Hill Jr., CRID: 51509329
+Codex Sovereign ID: DIV-LA-JHILL-STFL02035
+contact: jeromeizhome@gmail.com
+════════════════════════════════════════
+
+
+
+
+# Affinity — Vercel Starter
+
+```
+
+## Developer setup
+
+Run the helper script to install dependencies, Husky, and enable the git hooks path:
+
+```bash
+./scripts/dev-setup.sh
+```
+
+Alternatively, run:
+
+```bash
+pnpm install
+pnpm prepare
+git config core.hooksPath .husky
+```
+
+This will ensure the pre-commit and pre-push hooks are active. The pre-commit hook runs the Sovereign IP marks runner and blocks commits if it inserts or changes legal/branding files. The pre-push hook runs the test suite.
+
+## Secrets and local env
+
+Create a local secrets file from the example and edit it with your editor of choice (nano shown here):
+
+```bash
+cp .env.example .env.secrets
+nano .env.secrets
+```
+
+Do not commit `.env.secrets` — it's added to `.gitignore`.
++--------------------------------------------------+
+|  For private estate use only — not for           |
+|  publication or commercial distribution.         |
++--------------------------------------------------+
+```
+
+**Estate Identity**\
+
+- Owner: Jerome Elston Hill Jr.\
+
+- CRID: 51509329\
+
+- Codex Sovereign ID: DIV-LA-JHILL-STFL02035\
+
+- Formal Contact: \
+
+- Public Email: jeromeizhome@gmail.com\
+
+- Public Phone: +1-213-755-7164\
+
+
+**Estate Identity**\
+
+- Owner: Jerome Elston Hill Jr.\
+
+- CRID: 51509329\
+
+- Codex Sovereign ID: DIV-LA-JHILL-STFL02035\
+
+- Formal Contact: \
+
+- Public Email: jeromeizhome@gmail.com\
+
+- Public Phone: +1-213-755-7164\
+
+
+**Estate Identity**\
+
+- Owner: Jerome Elston Hill Jr.\
+
+- CRID: 51509329\
+
+- Codex Sovereign ID: DIV-LA-JHILL-STFL02035\
+
+- Formal Contact: \
+
+- Public Email: jeromeizhome@gmail.com\
+
+- Public Phone: +1-213-755-7164\
+
++--------------------------------------------------+
+|  For private estate use only — not for           |
+|  publication or commercial distribution.         |
++--------------------------------------------------+

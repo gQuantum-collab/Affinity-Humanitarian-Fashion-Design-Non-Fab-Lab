@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import IPMark from '../components/IPMark'
+import Footer from '../components/Footer'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 export const metadata: Metadata = {
-  title: 'Affinity — Fashion for Humanity',
+  title: 'Affinity — Fashion for Humanity ™',
   description: 'Humanitarian streetwear. Capsule 001 available now.'
 }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -22,9 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main style={{maxWidth:960,margin:'0 auto',padding:'24px'}}>
           {children}
         </main>
-        <footer style={{maxWidth:960,margin:'0 auto',padding:'24px',opacity:.7}}>
-          © {new Date().getFullYear()} Affinity
-        </footer>
+        <Footer />
+        <IPMark />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

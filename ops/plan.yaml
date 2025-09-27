@@ -1,0 +1,64 @@
+version: 1
+project: Affinity Sovereign Site
+author: Codex Automation
+start: 2025-09-27
+
+milestones:
+  - id: 1
+    name: Identity Lock
+    tasks:
+      - check: ops/ipmarks/config.json exists
+      - verify: contains owner, crid, sovereign_id, contact, email, phone, marks
+  - id: 2
+    name: IP Marks Injection
+    tasks:
+      - run: python3 ops/ipmarks/runner.py
+  - id: 3
+    name: Repo Hygiene
+    tasks:
+      - ensure: assets/logo-master.png or public/logo.svg
+      - run: pnpm icons
+      - ensure: app/icon.png
+  - id: 4
+    name: Brand Consistency Check
+    tasks:
+      - scan: files for "Affinity"
+      - verify: tailwind.config.ts colors
+  - id: 5
+    name: Content Integrity
+    tasks:
+      - ensure: app/(site)/about, shop, contact, privacy, terms
+  - id: 6
+    name: Commerce Hook Readiness
+    tasks:
+      - check: components/ShopifyBuyButton.tsx or StripeCheckoutButton.tsx
+      - if: stripe
+        ensure: app/api/create-checkout-session/route.ts
+  - id: 7
+    name: Analytics & Compliance
+    tasks:
+      - ensure: @vercel/analytics mounted in layout.tsx
+      - check_env: [NEXT_PUBLIC_GA_ID, NEXT_PUBLIC_FACEBOOK_PIXEL_ID]
+      - verify: next.config.mjs headers
+  - id: 8
+    name: PWA & Offline
+    tasks:
+      - ensure: app/manifest.ts
+      - ensure: public/sw.js
+      - ensure: components/RegisterSW.tsx
+  - id: 9
+    name: Deployment & Verification
+    tasks:
+      - run: pnpm build
+      - run: npx vercel --prod
+      - verify: curl $NEXT_PUBLIC_SITE_URL/robots.txt
+  - id: 10
+    name: QA & Lighthouse Gate
+    tasks:
+      - run: lighthouse-ci --score=90
+      - commit: "chore(ci): Sovereign IP Marks enforced + QA passed ✅"
+
+checks:
+  lighthouse_target: 90
+  required_env:
+    - NEXT_PUBLIC_SITE_URL

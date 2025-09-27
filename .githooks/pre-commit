@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Minimal pre-commit hook to run the ipmarks check and a quick style attr scan
+# To enable locally: git config core.hooksPath .githooks
+
+set -euo pipefail
+
+echo "Running ipmarks check..."
+python3 ops/check_ipmarks.py || { echo "ipmarks check failed. Commit aborted."; exit 1; }
+
+# Quick grep to catch style="..." in staged TSX/JSX files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(tsx|jsx)$' || true)
+if [ -n "$STAGED_FILES" ]; then
+  echo "Scanning staged TSX/JSX files for style=\"...\" usage..."
+  for f in $STAGED_FILES; do
+    if git show :"$f" | grep -n 'style="' >/dev/null; then
+      echo "Found style=\"...\" in $f. Use style={{ ... }} instead. Commit aborted."; exit 1;
+    fi
+  done
+fi
+
+echo "Pre-commit checks passed."
+exit 0

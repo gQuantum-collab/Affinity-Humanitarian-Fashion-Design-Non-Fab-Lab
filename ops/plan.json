@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "project": "Affinity Sovereign Site",
+  "author": "Codex Automation",
+  "milestones": [
+    {"id": 1, "name": "Identity Lock"},
+    {"id": 2, "name": "IP Marks Injection"},
+    {"id": 3, "name": "Repo Hygiene"},
+    {"id": 4, "name": "Brand Consistency Check"},
+    {"id": 5, "name": "Content Integrity"},
+    {"id": 6, "name": "Commerce Hook Readiness"},
+    {"id": 7, "name": "Analytics & Compliance"},
+    {"id": 8, "name": "PWA & Offline"},
+    {"id": 9, "name": "Deployment & Verification"},
+    {"id": 10, "name": "QA & Lighthouse Gate"}
+  ],
+  "checks": {
+    "lighthouse_target": 90,
+    "required_env": ["NEXT_PUBLIC_SITE_URL"]
+  }
+}
