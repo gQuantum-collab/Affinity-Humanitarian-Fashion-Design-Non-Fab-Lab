@@ -6,6 +6,27 @@ on:
   pull_request:
 
 jobs:
+  ipmarks:
+    name: Enforce IP Marks (fail-fast)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+      - name: Run ipmarks runner
+        run: |
+          python3 ops/ipmarks/runner.py
+          if ! git diff --quiet; then
+            echo "❌ Runner produced changes. Commit them before pushing."
+            git --no-pager diff
+            exit 1
+          fi
+
+  verify:
   verify:
     runs-on: ubuntu-latest
     steps:

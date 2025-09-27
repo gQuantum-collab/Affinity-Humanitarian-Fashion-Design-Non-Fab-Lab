@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 # Ensure dependencies are installed (frozen lockfile to match CI)
 pnpm install --frozen-lockfile

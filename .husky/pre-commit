@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 # Enforce sovereign IP marks
 python3 ops/ipmarks/runner.py
