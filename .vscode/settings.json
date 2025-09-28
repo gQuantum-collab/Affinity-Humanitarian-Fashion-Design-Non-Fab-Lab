@@ -1,0 +1,13 @@
+{
+  "terminal.integrated.profiles.osx": {
+    "PowerShell": {
+      "path": "/opt/homebrew/bin/pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "[powershell]": {
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+    "editor.semanticHighlighting.enabled": false
+  }
+}

@@ -1,10 +1,4 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/notes/route": "app/api/notes/route.js",
-  "/api/stripe/create-payment-intent/route": "app/api/stripe/create-payment-intent/route.js",
-  "/page": "app/page.js",
-  "/icon.png/route": "app/icon.png/route.js",
-  "/notes/page": "app/notes/page.js",
-  "/opengraph-image/route": "app/opengraph-image/route.js",
-  "/api/stripe/webhook/route": "app/api/stripe/webhook/route.js"
+  "/page": "app/page.js"
 }
