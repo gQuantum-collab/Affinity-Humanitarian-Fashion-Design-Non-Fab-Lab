@@ -14,9 +14,19 @@ $headers = @{
   'x-vercel-set-bypass-cookie' = 'true'
   'User-Agent' = 'affinity-smoke/1.0'
 }
-$resp = Invoke-WebRequest -Uri $Url -Headers $headers -Method GET -MaximumRedirection 5 -ErrorAction Stop
-if ($resp.StatusCode -ge 200 -and $resp.StatusCode -lt 400) {
-  Write-Host "✅ Success: $($resp.StatusCode)" -ForegroundColor Green
-  exit 0
+try {
+  $resp = Invoke-WebRequest -Uri $Url -Headers $headers -Method GET -MaximumRedirection 5 -ErrorAction Stop
+  if ($resp.StatusCode -ge 200 -and $resp.StatusCode -lt 400) {
+    Write-Host "✅ Success: $($resp.StatusCode)" -ForegroundColor Green
+    exit 0
+  }
+  Write-Error "Smoke failed: $($resp.StatusCode)"; exit 3
+} catch {
+  $msg = $_.Exception.Message
+  if ($msg -match 'DEPLOYMENT_NOT_FOUND') {
+    Write-Host 'Hint: Ensure DEPLOYMENT_URL points to a current preview or production deployment.' -ForegroundColor Yellow
+    Write-Host 'If using a fresh preview, visit it once in a browser to warm caches.' -ForegroundColor DarkYellow
+  }
+  Write-Error $msg
+  exit 4
 }
-Write-Error "Smoke failed: $($resp.StatusCode)"; exit 3

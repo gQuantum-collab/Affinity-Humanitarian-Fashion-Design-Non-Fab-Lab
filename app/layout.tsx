@@ -6,7 +6,9 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 export const metadata: Metadata = {
   title: 'Affinity — Fashion for Humanity ™',
-  description: 'Humanitarian streetwear. Capsule 001 available now.'
+  description: 'Humanitarian streetwear. Capsule 001 available now.',
+  // Set metadataBase to eliminate build warning and ensure correct absolute OG/Twitter URLs
+  metadataBase: new URL(process.env.DEPLOYMENT_URL || 'https://gtekaffinity.io')
 }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
