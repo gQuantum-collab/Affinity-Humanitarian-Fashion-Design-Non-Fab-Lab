@@ -5,17 +5,18 @@
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
+  "allowJs": true,
+  "skipLibCheck": true,
+  "strict": true,
     "noEmit": true,
     "incremental": true,
-    "module": "esnext",
+  "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+  "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
@@ -24,10 +25,10 @@
     ,
     // Limit automatically-included @types packages to avoid test-only types during production builds
     "types": ["node"],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   },
   "include": [
     "next-env.d.ts",
@@ -36,6 +37,7 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "gluxr-dao-pool/app/.next"
   ]
 }

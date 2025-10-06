@@ -37,8 +37,10 @@ milestones:
   - id: 7
     name: Analytics & Compliance
     tasks:
-      - ensure: @vercel/analytics mounted in layout.tsx
-      - check_env: [NEXT_PUBLIC_GA_ID, NEXT_PUBLIC_FACEBOOK_PIXEL_ID]
+      - ensure: "@vercel/analytics mounted in layout.tsx"
+      - check_env:
+          - NEXT_PUBLIC_GA_ID
+          - NEXT_PUBLIC_FACEBOOK_PIXEL_ID
       - verify: next.config.mjs headers
   - id: 8
     name: PWA & Offline

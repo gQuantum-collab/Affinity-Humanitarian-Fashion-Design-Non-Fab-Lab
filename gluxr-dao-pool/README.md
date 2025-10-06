@@ -50,3 +50,22 @@ Callable function: `verifyMember({ wallet })` returns `{ verified, balance }` ba
 
 ## 8. License
 Sovereign © BFH TRUST DESIGNS / gTek Global Industries
+
+## 9. Development Convenience
+
+From the monorepo root you can enter the dApp directory and install its dependencies separately until a workspace is declared:
+
+```bash
+cd gluxr-dao-pool/app
+pnpm install
+pnpm dev
+```
+
+When we convert the root into a pnpm workspace, these steps become:
+
+```bash
+pnpm install --filter gluxr-dao-pool-app...
+pnpm --filter gluxr-dao-pool-app dev
+```
+
+Add an `idl/` folder under `app/` and copy the compiled IDL for typed client usage.
