@@ -1,0 +1,21 @@
+{
+  "name": "gluxr-dao-pool-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@project-serum/anchor": "^0.29.0",
+    "@solana/wallet-adapter-base": "^0.9.26",
+    "@solana/wallet-adapter-react": "^0.15.32",
+    "@solana/wallet-adapter-wallets": "^0.19.24",
+    "@solana/web3.js": "^1.95.3",
+    "bn.js": "^5.2.1",
+    "next": "14.2.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
